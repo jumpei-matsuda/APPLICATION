@@ -19,4 +19,5 @@ const App: React.FC = () => (
 
   <h1>Hello Reacts</h1>
 );
+
 export default App;
