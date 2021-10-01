@@ -19,5 +19,8 @@ const App: React.FC = () => (
 
   <h1>Hello Reacts</h1>
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> f807d4ed5a1f7315dc61a0554d3f2b88dc0fbfd7
 export default App;
