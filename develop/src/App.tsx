@@ -1,7 +1,9 @@
 // import React, { useEffect } from 'react';
-// import { Switch, Route, useHistory, useLocation } from 'react-router';
-// import { ThemeProvider } from '@material-ui/core/styles';
+import { Switch, Route, /* useHistory, useLocation */ } from 'react-router';
+import { ThemeProvider } from '@material-ui/core/styles';
 // import useMediaQuery from '@material-ui/core/useMediaQuery';
+import LoginPage from 'components/pages/LoginPage';
+import { theme } from 'constants/themeConstant';
 
 const App: React.FC = () => (
   // const { hash, pathname } = useLocation();
@@ -17,10 +19,15 @@ const App: React.FC = () => (
   // レスポンシブ対応（ブレークポイント：600px）
   // const isResponsible = useMediaQuery(theme.breakpoints.down('sm'));
 
-  <h1>Hello Reacts</h1>
+    <ThemeProvider theme={theme}>
+      <Switch>
+        <Route exact path="/">
+          <LoginPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+      </Switch>
+    </ThemeProvider>
 );
-<<<<<<< HEAD
-
-=======
->>>>>>> f807d4ed5a1f7315dc61a0554d3f2b88dc0fbfd7
 export default App;

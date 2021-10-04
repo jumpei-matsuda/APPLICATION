@@ -34,6 +34,7 @@ module.exports = {
   ],
   root: true,
   rules: {
+    'import/no-unresolved': 'off',
     // occur error in `import React from 'react'` with react-scripts 4.0.1
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [
@@ -104,14 +105,12 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off',
   },
-  overrides: [
-    {
-      'files': ['*.tsx'],
-      'rules': {
-        'react/prop-types': 'off',
-      },
+  overrides: [{
+    'files': ['*.tsx'],
+    'rules': {
+      'react/prop-types': 'off',
     },
-  ],
+  }, ],
   settings: {
     'import/resolver': {
       node: {
