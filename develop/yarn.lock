@@ -2641,6 +2641,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/gh-pages@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@types/gh-pages/-/gh-pages-3.2.0.tgz#3f3c1ffe298fb390197c51348df0bcad3132715b"
+  integrity sha512-8N1e1SNedKoYQzQqkMS6OJCIFyuqxEZc2/upyT1ay7WVImUpCJTPKaaBmNzXR/fjbJKacG4lPPrNH+j4tG1g7A==
+
 "@types/glob@^7.1.1":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.1.tgz#aa59a1c6e3fbc421e07ccd31a944c30eba521575"
@@ -6722,7 +6727,7 @@ firebase-admin@^9.11.0:
     "@google-cloud/firestore" "^4.5.0"
     "@google-cloud/storage" "^5.3.0"
 
-firebase@^8.8.1:
+firebase@^8.10.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-8.10.0.tgz#1794148de8f865b5e7f32c582fb343a4e2c68ca7"
   integrity sha512-GCABTbJdo88QgzX5OH/vsfKBWvTRbLUylGlYXtO7uYo1VErfGd2BWW9ATlJP5Gxx+ClDfyvVTvcs2rcNWn3uUA==

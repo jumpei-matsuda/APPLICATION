@@ -1,14 +1,13 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA3qiZ5MzSql7n5rFEF9TMMpfkF-KwZguM',
-  authDomain: 'family-crest-sns.firebaseapp.com',
-  databaseURL: '',
-  projectId: 'family-crest-sns',
-  storageBucket: 'family-crest-sns.appspot.com',
-  messagingSenderId: '387060685157',
-  appId: '1:387060685157:web:80bb4bdd8f868b0d58a98c',
-  measurementId: 'G-PWJJ7SKCN8',
+  apiKey: "AIzaSyDEL-vl2a8gz851d7HZ1FIQr2Djdrh-_HY",
+  authDomain: "application-0930.firebaseapp.com",
+  projectId: "application-0930",
+  storageBucket: "application-0930.appspot.com",
+  messagingSenderId: "17520612972",
+  appId: "1:17520612972:web:59b45ca189c974bf31ea49",
+  measurementId: "G-032152WGG3"
 };
 
 firebase.initializeApp(firebaseConfig);
