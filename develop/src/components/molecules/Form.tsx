@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { makeStyles, Button } from '@material-ui/core';
 import { inputType, InputForm, defaultValues } from 'constants/commonConstant';
 
@@ -15,12 +15,14 @@ export type InputTextType = {
 type Props = {
   items: InputTextType[],
   position?: 'left' | 'center' | 'right',
+  onSubmit: (data: InputForm) => void
 }
 
 const useStyles = (position?: string) => makeStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    width: 'fit-content',
     padding: '2rem',
     alignItems: position ?? '',
   },
@@ -41,12 +43,9 @@ const useStyles = (position?: string) => makeStyles({
  * Form コンポーネント
  * @returns
  */
-const Form: React.FC<Props> = ({ items, position }) => {
+const Form: React.FC<Props> = ({ items, position, onSubmit }) => {
 
   const { handleSubmit, control } = useForm<InputForm>({ defaultValues });
-  const onSubmit: SubmitHandler<InputForm> = (data) => {
-    console.log(data);
-  };
 
   const classes = useStyles(position)();
 

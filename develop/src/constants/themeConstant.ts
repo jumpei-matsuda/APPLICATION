@@ -15,6 +15,7 @@ export const theme = {
   },
   fontFamily: {
     base: 'Sawarabi Mincho, sans-serif',
+    english: "Times New Roman",
   },
   color: {
     navy: '#061b94',

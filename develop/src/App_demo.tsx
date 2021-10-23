@@ -3,7 +3,6 @@ import { Switch, Route, /* useHistory, useLocation */ } from 'react-router';
 import { ThemeProvider } from '@material-ui/core/styles';
 // import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import PrivateRoute from 'components/common/PrivateRoute';
 import { LoginPage } from 'components/pages/LoginPage';
 import { EditPlofilePage } from 'components/pages/EditPlofilePage';
 import { TopPage } from 'components/pages/TopPage';
@@ -32,12 +31,12 @@ const App: React.FC = () => (
         <Route exact path="/login">
           <LoginPage />
         </Route>
-        <PrivateRoute exact path="/" >
+        <Route exact path="/" >
           <TopPage />
-        </PrivateRoute>
-        <PrivateRoute exact path="/edit" >
+        </Route>
+        <Route exact path="/edit" >
           <EditPlofilePage />
-        </PrivateRoute>
+        </Route>
       </Switch>
     </AuthProvider>
   </ThemeProvider>
