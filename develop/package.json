@@ -4,8 +4,12 @@
   "private": true,
   "homepage": "https://application-0930.web.app/",
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/styles": "^4.11.4",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.1.0",
+    "@mui/material": "^5.1.0",
+    "@mui/styles": "^5.1.0",
+    "@mui/system": "^5.1.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.1",
     "@testing-library/user-event": "^13.2.1",
@@ -35,14 +39,14 @@
     "eject": "react-scripts eject",
     "fix": "npm run -s format && npm run -s lint:fix",
     "postinstall": "typesync",
-    " f o r m a t ": " p r e t t i e r - - w r i t e - - l o g l e v e l = w a r n'{public,src}/**/*.{js,jsx,ts,tsx,html,gql,graphql,json}'",
+    "format": "prettier --write --loglevel=warn src/**/*.{js,jsx,ts,tsx,gql,graphql,json}",
     "lint": "npm run -s lint:style; npm run -s lint:es",
     "lint:fix": "npm run -s lint:style:fix && npm run -s lint:es:fix",
-    "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:es": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:es:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
     "lint:conflict": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "lint:style": "stylelint 'src/**/*.{css,less,sass,scss}'",
-    "lint:style:fix": "stylelint --fix 'src/**/*.{css,less,sass,scss}'"
+    "lint:style": "stylelint src/**/*.{css,less,sass,scss}",
+    "lint:style:fix": "stylelint --fix src/**/*.{css,less,sass,scss}"
   },
   "eslintConfig": {
     "extends": [

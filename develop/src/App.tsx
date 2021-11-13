@@ -1,15 +1,15 @@
 // import React, { useEffect } from 'react';
 import { Switch, Route, /* useHistory, useLocation */ } from 'react-router';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/styles';
 // import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import PrivateRoute from 'components/common/PrivateRoute';
-import { LoginPage } from 'components/pages/LoginPage';
-import { EditPlofilePage } from 'components/pages/EditPlofilePage';
-import { TopPage } from 'components/pages/TopPage';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import { SignInPage } from 'views/SignInPage';
+import { EditPlofilePage } from 'views/EditPlofilePage';
+import { TopPage } from 'views/TopPage';
 
-import { theme } from 'constants/themeConstant';
-import { AuthProvider } from 'contexts/auth'
+import { theme } from 'utils/constants/themeConstant';
+import { AuthProvider } from 'utils/contexts/auth'
 
 const App: React.FC = () => (
   // const { hash, pathname } = useLocation();
@@ -30,7 +30,7 @@ const App: React.FC = () => (
     <AuthProvider>
       <Switch>
         <Route exact path="/login">
-          <LoginPage />
+          <SignInPage />
         </Route>
         <PrivateRoute exact path="/" >
           <TopPage />
