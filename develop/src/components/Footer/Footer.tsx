@@ -5,7 +5,7 @@ import { theme } from 'utils/constants/themeConstant';
 const Footer: React.VFC = () => (
   <Box sx={{
     width: '100%',
-    height: '10rem',
+    height: '5rem',
     background: theme.palette.success.dark,
     display: 'flex',
     flexDirection: 'column',

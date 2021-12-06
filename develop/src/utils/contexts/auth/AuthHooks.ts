@@ -1,23 +1,27 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { useState, createContext, useContext } from "react";
 import { firebase } from 'utils/configure/firebase';
-import { InputForm, SetInputForm } from 'utils/constants/commonConstant';
-import { INFO_SIGN_IN, ERROR_SIGN_IN } from 'utils/constants/messageConstant';
+import { UserInputForm, SetInputForm } from 'utils/constants/commonConstant';
+import { useMessage } from "utils/contexts/message";
 
-export type AuthInfo = SetInputForm<InputForm, 'email' | 'password'>
-export type UpdateInfo = Pick<InputForm, 'displayName'>
+import * as message from 'utils/constants/messageConstant';
 
-type UseProvideAuth = {
+export type AuthInfo = SetInputForm<UserInputForm, 'email' | 'password'>
+export type UpdateInfo = Pick<UserInputForm, 'displayName'>
+
+export type UseProvideAuth = {
   user: firebase.User | null,
-  signin: (signInfo: AuthInfo) => Promise<string>,
-  signup: (signInfo: AuthInfo) => Promise<string>,
+  signin: (signInfo: AuthInfo) => void,
+  signout: () => void,
+  signup: (signInfo: AuthInfo) => void,
   updateProfile: (updateInfo: UpdateInfo) => void;
 }
 
 const initialState: UseProvideAuth = {
   user: null,
-  signin: () => new Promise(() => ''),
-  signup: () => new Promise(() => ''),
+  signin: () => { },
+  signout: () => { },
+  signup: () => { },
   updateProfile: () => { }
 }
 
@@ -36,6 +40,7 @@ export const useAuth = (): UseProvideAuth => useContext(authContext);
  * @returns 
  */
 export const useProvideAuth = (): UseProvideAuth => {
+  const { setMessage } = useMessage();
   const [user, setUser] = useState<firebase.User | null>(null);
 
   // サインイン
@@ -43,30 +48,33 @@ export const useProvideAuth = (): UseProvideAuth => {
     firebase.auth().signInWithEmailAndPassword(signInfo.email, signInfo.password)
       .then((response) => {
         setUser(response.user);
-        console.log({ user: response.user });
-
-        return INFO_SIGN_IN;
+        setMessage(message.INFO_USER_SIGN_IN, "success")
       })
-      .catch((error: unknown) => {
-        console.log({ error });
-
-        return ERROR_SIGN_IN;
+      .catch(() => {
+        setMessage(message.ERROR_USER_SIGN_IN, "error")
       })
   );
+
+  // サインアウト
+  const signout = () => (
+    firebase.auth().signOut()
+      .then(() => {
+        setUser(null);
+      })
+      .catch(() => {
+        setMessage(message.ERROR_COMMON_MESSAGE, "error")
+      })
+  )
 
   // サインアップ
   const signup = (signInfo: AuthInfo) => (
     firebase.auth().createUserWithEmailAndPassword(signInfo.email, signInfo.password)
       .then((response) => {
         setUser(response.user);
-        console.log(response.user);
-
-        return INFO_SIGN_IN;
+        setMessage(message.INFO_USER_SIGN_UP, "success")
       })
-      .catch((error: unknown) => {
-        console.log({ error });
-
-        return ERROR_SIGN_IN;
+      .catch(() => {
+        setMessage(message.ERROR_USER_SIGN_UP, "error")
       })
   );
 
@@ -84,6 +92,7 @@ export const useProvideAuth = (): UseProvideAuth => {
   return {
     user,
     signin,
+    signout,
     signup,
     updateProfile,
   }

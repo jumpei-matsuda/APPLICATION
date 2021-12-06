@@ -3,44 +3,25 @@ import { Alert, AlertProps, IconButton, Collapse, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 
+import { useMessage } from 'utils/contexts/message';
 
-type Props = {
-  successMessage: string,
-  errorMessage: string,
-  onClose: () => void,
-}
 
 const StyledAlert = styled(Alert)<AlertProps>({
   position: "fixed",
   bottom: "2rem",
 })
 
-const AlertMessage: React.FC<Props> = ({ successMessage, errorMessage, onClose }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [dispMessage, setDispMessage] = useState(successMessage || errorMessage || '');
-  const [color, setColor] = useState<'success' | 'error' | undefined>(undefined);
+const AlertMessage: React.FC = () => {
+  const [color, setColor] = useState<'success' | 'error' | undefined>(undefined)
+  const { message, result, isOpen, onClose } = useMessage();
 
   useEffect(() => {
-    if (successMessage) {
-      setIsOpen(true);
-      setDispMessage(successMessage);
-      setColor('success');
+    if (result === 'success') {
+      setColor('success')
+    } else if (result === 'error') {
+      setColor('error')
     }
-  }, [successMessage]);
-
-  useEffect(() => {
-    if (errorMessage) {
-      setIsOpen(true);
-      setDispMessage(errorMessage);
-      setColor('error');
-    }
-  }, [errorMessage]);
-
-  useEffect(() => {
-    if (!successMessage && !errorMessage) {
-      setIsOpen(false);
-    }
-  }, [successMessage, errorMessage]);
+  }, [message, result])
 
   return (
     <Collapse in={isOpen}>
@@ -58,7 +39,7 @@ const AlertMessage: React.FC<Props> = ({ successMessage, errorMessage, onClose }
             </IconButton>
           }
         >
-          {dispMessage}
+          {message}
         </StyledAlert>
       </Box>
     </Collapse>

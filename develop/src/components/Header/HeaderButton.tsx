@@ -10,6 +10,7 @@ const StyledButton = styled(Button)<ButtonProps>({
   fontSize: '.75rem',
   fontWeight: 900,
   fontFamily: 'unset',
+  textTransform: 'none',
   ':hover': {
     background: theme.palette.success.main,
   }

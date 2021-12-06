@@ -1,4 +1,9 @@
 {
+  "files.watcherExclude": {
+    "**/__generated__/**": true,
+    "**/build/**": true,
+    "**/coverage/**": true
+  },
   "typescript.tsdk": "./node_modules/typescript/lib",
   "css.validate": false,
   "less.validate": false,
@@ -9,7 +14,6 @@
   },
   "editor.formatOnSave": false,
   "eslint.packageManager": "yarn",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[graphql]": {
     "editor.formatOnSave": true

@@ -37,9 +37,8 @@ module.exports = {
     'import/no-unresolved': 'off',
     // occur error in `import React from 'react'` with react-scripts 4.0.1
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-    ],
+    'react-hooks/exhaustive-deps': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
     'lines-between-class-members': [
       'error',
       'always',
@@ -64,11 +63,11 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        'vars': 'all',
-        'args': 'after-used',
-        'argsIgnorePattern': '_',
-        'ignoreRestSiblings': false,
-        'varsIgnorePattern': '_',
+        vars: 'all',
+        args: 'after-used',
+        argsIgnorePattern: '_',
+        ignoreRestSiblings: false,
+        varsIgnorePattern: '_',
       },
     ],
     'import/extensions': [
@@ -105,12 +104,14 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off',
   },
-  overrides: [{
-    'files': ['*.tsx'],
-    'rules': {
-      'react/prop-types': 'off',
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
     },
-  }, ],
+  ],
   settings: {
     'import/resolver': {
       node: {
